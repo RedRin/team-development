@@ -20,7 +20,7 @@ using team_development.UI.Forum;
 
 namespace team_development.FormLib
 {
-    public enum MenuType { JWXT, Absence, Forum, Query, UserInfo, Search };
+    public enum MenuType { JWXT, Absence, Forum, Query, UserInfo, Search,Nothing };
     public enum SubMenuType { CourseSelection,MatchScheme,QueryMark,QueryInform,QueryEmploy,QueryMealCard,QueryCost }
     public class MenuGetter
     {
@@ -39,6 +39,7 @@ namespace team_development.FormLib
             UserInfoInstance= new UserInfoDisplay();
             ForumInstance = new Forum();
         }
+        public static void Init() { }
         public static Form GetMenu(MenuType MenuId,SubMenuType SubMenuId=0) {
             Log.log.Info("Require Turn From");
             switch (MenuId) {
@@ -87,6 +88,9 @@ namespace team_development.FormLib
                     break;
                 case MenuType.UserInfo:
                     return UserInfoInstance;
+                    break;
+                case MenuType.Nothing:
+                    return null;
                     break;
                 default:
                     Log.log.Error("ERROR SubMenu!!!");

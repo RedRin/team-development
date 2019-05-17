@@ -5,99 +5,49 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Net;
-using System.IO;
 using System.IO.Compression;
 using System.Collections.Specialized;
 using Lib;
 using System.Windows.Forms;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Lib.GetElectricCharge
 {
-
+    public delegate void SetCharge(string charge);
     public class GetElectricCharge
     {
-
-        private WebBrowser webBrowser = new WebBrowser();
-        private System.Threading.AutoResetEvent obj = new System.Threading.AutoResetEvent(false);
-        public GetElectricCharge() {
-            webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.WebBrowserDocumentCompleted);
+        public void GetElectric(string username, SetCharge sc) {
+            GetCharge gc = new GetCharge();
+            gc.username = username;
+            gc.sc = sc;
+            Thread ge = new Thread(gc.Get);
+            ge.Start();
         }
-        public void Login(string username)
+        public class GetCharge
         {
-            Log.log.Info("Loading the electricity charge enquiry website.");
-            webBrowser.Navigate("http://202.116.25.12/login.aspx");
-            Wait();
-
-            HtmlElement tbUserId = webBrowser.Document.GetElementById("txtname");
-            HtmlElement btnSubmit = webBrowser.Document.GetElementById("ctl01");
-            try
+            public string username;
+            public SetCharge sc;
+            public void Get()
             {
-                Log.log.Info("Input username into username box in the electricity charge enquiry website.");
-                tbUserId.SetAttribute("value", username);
-                
-                Log.log.Info("Click the login button in the electricity charge enquiry website and load the logined website.");
-                btnSubmit.InvokeMember("click");
-            }
-            catch (Exception e)
-            {
-                Log.log.Error(e.ToString());
-            }
-            DropList();
-        }
+                Log.log.Info("Receive the electric data from the electricity charge enquiry website.");
+                Process proc = new Process();
+                proc.StartInfo.FileName = "../../../Libary/GetElectricCharge/GetElectric.exe";
+                proc.StartInfo.Arguments = username;
 
-        public void DropList()
-        {
-            Wait();
-            
-            HtmlElement dropList = webBrowser.Document.GetElementById("RegionPanel1_Region2_GroupPanel1_ContentPanel1_DDL_监控项目");
-            try
-            {
-                Log.log.Info("Click the drop-down box in the electricity charge enquiry website.");
-                dropList.InvokeMember("click");
-            }
-            catch (Exception e)
-            {
-                Log.log.Error(e.ToString());
-            }
+                proc.StartInfo.UseShellExecute = false;
 
-            HtmlElementCollection htmlele = webBrowser.Document.GetElementsByTagName("div");
-            foreach (HtmlElement item in htmlele)
-            {
-                if (item.InnerText == "当前剩余电量")
-                {
-                    try
-                    {
-                        Log.log.Info("Click the remained electric button in the electricity charge enquiry website and load the remained electric page");
-                        item.InvokeMember("click");
-                    }
-                    catch {
+                proc.StartInfo.RedirectStandardInput = true;
 
-                    }
-                    break;
-                }
-            }
-        }
-        
-        public string GetElectric()
-        {
-            Log.log.Info("Receive the electric data from the electricity charge enquiry website.");
-            string Text = webBrowser.Document.GetElementById("RegionPanel1_Region2_GroupPanel1_ContentPanel1_L_监视屏").InnerText + "度";
-            return Text;
-        }
+                proc.StartInfo.RedirectStandardOutput = true;
 
-        public void WebBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            webBrowser.ScriptErrorsSuppressed = true;
-            obj.Set();
-        }
+                proc.StartInfo.RedirectStandardError = true;
 
-        public void Wait()
-        {
-            obj.Reset();
-            while (obj.WaitOne(10, false) == false)
-            {
-                Application.DoEvents();
+                proc.StartInfo.CreateNoWindow = true;
+                proc.Start();
+                string elecNum = proc.StandardOutput.ReadToEnd();
+                proc.Close();
+                sc(elecNum);
             }
         }
     }

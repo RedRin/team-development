@@ -18,11 +18,13 @@ namespace team_development
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
             //UserInfo u = new UserInfo();
            // u=(UserInfo)Storage.Load("UserInfo.xml");
+        
         }
 
         private void CourseSelectionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,7 +84,7 @@ namespace team_development
         private void QueryInformToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Log.log.Info("CLICK SubMenu QueryInform.");
-            TurnForm(MenuType.Query, SubMenuType.QueryInform);
+            TurnForm(MenuType.Search);
         }
 
         private void QueryCostToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -118,6 +120,11 @@ namespace team_development
         {
             Log.log.Info("CLICK Search Button.");
             TurnForm(MenuType.Search);
+        }
+
+        private void keyword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

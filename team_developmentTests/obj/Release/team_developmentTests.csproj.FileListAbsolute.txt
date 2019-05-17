@@ -1,0 +1,16 @@
+D:\schoolProject\team_development\team_developmentTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\team_developmentTests.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\team_developmentTests.pdb
+D:\schoolProject\team_development\team_developmentTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\schoolProject\team_development\team_developmentTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\schoolProject\team_development\team_developmentTests\bin\Release\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\schoolProject\team_development\team_developmentTests\obj\Release\team_developmentTests.csproj.CoreCompileInputs.cache
+D:\schoolProject\team_development\team_developmentTests\obj\Release\team_developmentTests.csproj.CopyComplete
+D:\schoolProject\team_development\team_developmentTests\obj\Release\team_developmentTests.dll
+D:\schoolProject\team_development\team_developmentTests\obj\Release\team_developmentTests.pdb

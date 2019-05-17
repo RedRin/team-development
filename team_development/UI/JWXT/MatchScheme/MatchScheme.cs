@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Lib;
 using System.Windows.Forms;
+using Lib.GetJWXT;
 
 namespace team_development.UI.MatchScheme
 {
@@ -41,7 +42,31 @@ namespace team_development.UI.MatchScheme
 
         private void MatchScheme_Load(object sender, EventArgs e)
         {
+            MatchSchemeItem matchSchemeItem = GetJWXT.jwxt.GetMatchSchemeItem(Lib.GetJWXT.GetJWXT.jwxt.GetMatchScheme().Body.InnerHtml);
 
+            for (int i = 0; i < matchSchemeItem.needs.Count; i++)
+            {
+                AddText(matchSchemeItem.needs[i], 3, i+1);
+            }
+
+            for (int i = 0; i < matchSchemeItem.study.Count; i++)
+            {
+                AddText(matchSchemeItem.study[i], 4, i+1);
+            }
+
+            for (int i = 0; i < matchSchemeItem.lefts.Count; i++)
+            {
+                AddText(matchSchemeItem.lefts[i], 5, i + 1);
+            }
+
+        }
+
+        private void AddText(string str,int column, int row)
+        {
+            Label lb = new Label();
+            lb.Text = str;
+            lb.TextAlign = ContentAlignment.MiddleCenter;
+            this.tableLayoutPanel1.Controls.Add(lb, column, row);
         }
 
         private void button1_Click_1(object sender, EventArgs e)

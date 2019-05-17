@@ -1,0 +1,11 @@
+D:\schoolProject\team_development\Libary\bin\Debug\log4net.dll
+D:\schoolProject\team_development\Libary\bin\Debug\log4net.xml
+D:\schoolProject\team_development\Libary\obj\Debug\Libary.csproj.CoreCompileInputs.cache
+D:\schoolProject\team_development\Libary\obj\Debug\Libary.csproj.CopyComplete
+D:\schoolProject\team_development\Libary\bin\Debug\Lib.dll
+D:\schoolProject\team_development\Libary\bin\Debug\Lib.pdb
+D:\schoolProject\team_development\Libary\obj\Debug\Libary.csprojAssemblyReference.cache
+D:\schoolProject\team_development\Libary\obj\Debug\Lib.dll
+D:\schoolProject\team_development\Libary\obj\Debug\Lib.pdb
+D:\schoolProject\team_development\Libary\bin\Debug\IronOcr.dll
+D:\schoolProject\team_development\Libary\bin\Debug\IronOcr.xml

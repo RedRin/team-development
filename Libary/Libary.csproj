@@ -47,6 +47,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,17 +60,26 @@
   <ItemGroup>
     <Compile Include="AbsenceWordManager.cs" />
     <Compile Include="GetElectricCharge\GetElectricCharge.cs" />
+    <Compile Include="GetJWXT\Course.cs" />
+    <Compile Include="GetIcas.cs" />
+    <Compile Include="GetInfo.cs" />
     <Compile Include="GetJWXT\GetJWXT.cs" />
     <Compile Include="GetJWXT\Gpa.cs" />
+    <Compile Include="GetJWXT\MatchSchemeItem.cs" />
+    <Compile Include="GetValue.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="NoticeSearch.cs" />
     <Compile Include="OCR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage.cs" />
+    <Compile Include="Waiting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="WordTemplates\简单请假条模板.dot" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="CourseFile\course.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

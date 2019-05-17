@@ -81,6 +81,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Query\QueryEmploy\OfferArticle.Designer.cs" />
+    <Compile Include="UI\Query\QueryInform\Info.cs" />
     <Compile Include="UI\Query\QueryInform\QueryInform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +171,12 @@
     <Compile Include="UI\Query\QueryElectricity\QueryElectricity.Designer.cs">
       <DependentUpon>QueryElectricity.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValidateForm.Designer.cs">
+      <DependentUpon>ValidateForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\Forum\Forum.resx">
       <DependentUpon>Forum.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Query\QueryElectricity\QueryElectricity.resx">
       <DependentUpon>QueryElectricity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValidateForm.resx">
+      <DependentUpon>ValidateForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

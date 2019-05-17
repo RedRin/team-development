@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Lib;
 
 namespace team_development.UI.QueryInform
 {
     public partial class QueryNotification : Form
     {
         public Form1 form1;
+        GetInfo getInfo = new GetInfo();
         public QueryNotification()
         {
             InitializeComponent();          
@@ -27,6 +29,8 @@ namespace team_development.UI.QueryInform
             rows.Add(new object[] { "关于启动暨南大学七级、八级职员聘任工作的通知", "人力资源开发与管理处", "2018 - 12 - 29" });
             rows.Add(new object[] { "关于升级电子邮箱系统的通知", "网络与教育技术中心", "2019 - 03 - 29" });
             rows.Add(new object[] { "关于参加第十届中外合作办学年会第二次筹备会议的通知", "国际交流合作处（港澳台侨事务办公室)", "2019 - 03 - 29" });
+            HtmlDocument html = getInfo.EnterWeb();
+            infocontent.Text = html.Body.InnerHtml;
         }
         private void label1_Click(object sender, EventArgs e)
         {

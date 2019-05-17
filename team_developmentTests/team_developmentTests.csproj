@@ -43,6 +43,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libary\obj\Debug\IronOcr.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -62,12 +63,12 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="GetElectricCharge\GetElectricChargeTests.cs" />
     <Compile Include="Lib\MenuGetterTests.cs" />
-    <Compile Include="OCRTests.cs" />
+    <Compile Include="MealcardTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StorageTests.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SearchTest.cs" />
+    <Compile Include="CourseLoadTest.cs" />
     <Compile Include="UserInfoSaveTests.cs" />
   </ItemGroup>
   <ItemGroup>

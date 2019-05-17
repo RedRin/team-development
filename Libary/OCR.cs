@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IronOcr;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Lib
 {
@@ -12,10 +13,20 @@ namespace Lib
     {
         public static string GetValidateCode(Bitmap img) {
             Log.log.Info("Getting validateCode from image");
-            Threshold(ref img, 100);
-            var Ocr = new AdvancedOcr() { Language = IronOcr.Languages.English.OcrLanguagePack };
-            var Results = Ocr.Read(img);
-            return Results.Text;
+            OcrResult Results = null;
+            try
+            {
+                Threshold(ref img, 100);
+                var Ocr = new AdvancedOcr() { Language = IronOcr.Languages.English.OcrLanguagePack };
+                Results = Ocr.Read(img);
+            } catch(Exception e)
+            {
+                MessageBox.Show("图片为空");
+            }
+            if (Results != null)
+                return Results.Text;
+            else
+                return "";
         }
         private static void Threshold(ref Bitmap img, int bounce)
         {
@@ -34,6 +45,8 @@ namespace Lib
                     img.SetPixel(i, j, Color.FromArgb(255, grey, grey, grey));
                 }
             }
+            
+            
         }
     }
 }
